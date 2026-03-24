@@ -1,0 +1,186 @@
+/* 1. Базові стилі */
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+/* 2. Загальний контейнер */
+.wrapper {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: nowrap;
+}
+
+/* 3. ASIDE (контакти зліва) */
+aside {
+    width: 25%;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 20px; /* щоб контакти залишались видимими при скролі */
+}
+
+aside h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+aside p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+aside a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+/* 4. MAIN (основний контент справа) */
+main {
+    width: 75%;
+    box-sizing: border-box;
+}
+
+/* 5. HEADER */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+/* 6. NAVIGATION */
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #0073e6;
+    color: #fff;
+}
+
+/* 7. Секції */
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 8. Заголовки */
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* 9. Елемент з іконкою */
+.item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* 10. Іконки */
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #000;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 11. Текст в елементі */
+.item-content strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.item-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* 12. Списки */
+ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* 13. Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* 14. Адаптивність */
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    aside, main {
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
