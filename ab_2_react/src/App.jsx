@@ -10,15 +10,30 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      {/* Header */}
       <Header />
+
+      {/* Navigation */}
       <Nav />
-      <hr />
-      <About />
-      <Education />
-      <Experience />
-      <Skills />
-      <Contacts />
+
+      {/* Основний контент + sidebar */}
+      <div className="flex flex-col lg:flex-row max-w-6xl mx-auto flex-1 gap-8 p-6">
+        {/* Sidebar */}
+        <div className="lg:w-1/4">
+          <Contacts />
+        </div>
+
+        {/* Основний контент */}
+        <div className="lg:w-3/4 flex-1">
+          <About />
+          <Education />
+          <Experience />
+          <Skills />
+        </div>
+      </div>
+
+      {/* Footer */}
       <Footer />
     </div>
   );

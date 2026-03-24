@@ -1,17 +1,18 @@
-function Education() {
+import React from 'react';
+import Item from './Item';
+import educImg from '../assets/educ.avif';
+
+export default function Education() {
   return (
-    <>
-      <section id="education">
-        <h2>Освіта</h2>
-        <ul>
-          <li>2021 - 2024 - Освітній ступінь Бакалавра, спеціальність "Кібербезпека", у НТУУ "КПІ ім. І. Сікорського", незакінчена вища освіта</li>
-          <li>2024 - дотепер - Освітній ступінь Бакалавра, спеціальність "Кібербезпека", у НУ "Львівська Політехніка"</li>
-          <li>Курси по мережах від Cisco, різні курси дотичні до спеціальності від Prometherus, Coursera, Udemy</li>
+    <section id="education" className="mb-8 pb-4 border-b border-gray-300">
+      <h2 className="text-2xl mb-4 font-semibold">Освіта</h2>
+      <Item icon={educImg}>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>2021 - 2024 - Бакалавр, спеціальність "Кібербезпека", НТУУ "КПІ ім. І. Сікорського" (незакінчена)</li>
+          <li>2024 - дотепер - Бакалавр, спеціальність "Кібербезпека", НУ "Львівська Політехніка"</li>
+          <li>Курси по мережах від Cisco, Prometheus, Coursera, Udemy</li>
         </ul>
-      </section>
-      <hr />
-    </>
+      </Item>
+    </section>
   );
 }
-
-export default Education;
