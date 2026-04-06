@@ -11,6 +11,7 @@
     <header>
         <h1>Лагно Костянтин</h1>
         <p>Студент спеціальності "Кібербезпека", група КБ-303, Варіант 8</p>
+        <button onclick="toggleTheme()" class="btn theme-toggle" id="themeBtn">Змінити тему</button>
     </header>
 
     <nav>
@@ -113,13 +114,122 @@
                 </div>
             </section>
 
+            <section id="comments">
+                <h2>Коментарі</h2>
+            </section>
+
+        
+        <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+            <div style="background:white; padding:20px; margin:10% auto; width:300px;">
+                <h3>Зворотній зв'язок</h3>
+                <form action="https://formspree.io/f/xkopkzqd" method="POST">
+                    <input type="text" name="name" placeholder="Ім’я" required><br><br>
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+                    <input type="tel" name="phone" placeholder="Телефон"><br><br>
+                    <textarea name="message" placeholder="Ваше повідомлення"></textarea><br><br>
+                    <button type="submit" class="btn">Відправити</button>
+                    <button onclick="closeModal()" class="btn">Закрити</button>
+                </form>
+
+            </div>
+        </div>
+
         </main>
 
-    </div> <!-- .wrapper -->
+    </div> 
 
     <footer>
         <p>© 2026 Лагно Костянтин</p>
+        <div id="browser-info"></div>
     </footer>
+
+
+    <script>
+    function saveBrowserInfo() {
+        const info = {
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            cookiesEnabled: navigator.cookieEnabled,
+            online: navigator.onLine,
+            screenWidth: screen.width,
+            screenHeight: screen.height
+        };
+
+        localStorage.setItem("browserInfo", JSON.stringify(info));
+    }
+
+    function displayLocalStorage() {
+        const stored = JSON.parse(localStorage.getItem("browserInfo"));
+
+        if (stored) {
+            const container = document.getElementById("browser-info");
+
+            container.innerHTML += `
+                <p><b>User Agent:</b> ${stored.userAgent}</p>
+                <p><b>Platform:</b> ${stored.platform}</p>
+                <p><b>Language:</b> ${stored.language}</p>
+                <p><b>Cookies:</b> ${stored.cookieEnabled}</p>
+                <p><b>Online:</b> ${stored.online}</p>
+                <p><b>Screen Width:</b> ${stored.screenWidth}</p>
+                <p><b>Screen Height:</b> ${stored.screenHeight}</p>
+            `;
+        }
+    }
+
+    saveBrowserInfo();
+    displayLocalStorage();
+
+
+
+    fetch("https://jsonplaceholder.typicode.com/posts/8/comments")
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById("comments");
+
+        data.forEach(comment => {
+            container.innerHTML += `
+                <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+                    <h4>${comment.name}</h4>
+                    <p>${comment.body}</p>
+                    <small>${comment.email}</small>
+                </div>
+            `;
+        });
+    });
+
+
+
+    setTimeout(() => {
+        document.getElementById("modal").style.display = "block";
+    }, 60000);
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+
+
+
+    function setThemeByTime() {
+        const hour = new Date().getHours();
+
+        if (hour >= 7 && hour < 21) {
+            document.body.className = "light";
+        } else {
+            document.body.className = "dark";
+        }
+    }
+
+    function toggleTheme() {
+        if (document.body.className === "light") {
+            document.body.className = "dark";
+        } else {
+            document.body.className = "light";
+        }
+    }
+    setThemeByTime();
+
+    </script>
 
 </body>
 </html>

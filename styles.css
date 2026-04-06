@@ -1,13 +1,20 @@
-/* 1. Базові стилі */
 body {
     font-family: Georgia, 'Times New Roman', serif;
     margin: 0;
     padding: 20px;
+}
+
+body.light {
     background-color: #f5f5f5;
     color: #111;
 }
 
-/* 2. Загальний контейнер */
+body.dark {
+    background-color: #111;
+    color: #f5f5f5;
+}
+
+
 .wrapper {
     display: flex;
     max-width: 1100px;
@@ -16,7 +23,7 @@ body {
     flex-wrap: nowrap;
 }
 
-/* 3. ASIDE (контакти зліва) */
+
 aside {
     width: 25%;
     border-right: 1px solid #ccc;
@@ -45,13 +52,13 @@ aside a:hover {
     text-decoration: underline;
 }
 
-/* 4. MAIN (основний контент справа) */
+
 main {
     width: 75%;
     box-sizing: border-box;
 }
 
-/* 5. HEADER */
+
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -68,7 +75,7 @@ header p {
     margin: 5px 0;
 }
 
-/* 6. NAVIGATION */
+
 nav {
     text-align: center;
     margin-bottom: 30px;
@@ -95,20 +102,20 @@ nav ul li a:hover {
     color: #fff;
 }
 
-/* 7. Секції */
+
 section {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
 }
 
-/* 8. Заголовки */
+
 h2 {
     font-size: 22px;
     margin-bottom: 20px;
 }
 
-/* 9. Елемент з іконкою */
+
 .item {
     display: flex;
     align-items: flex-start;
@@ -116,7 +123,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* 10. Іконки */
+
 .icon {
     width: 60px;
     height: 60px;
@@ -136,7 +143,7 @@ h2 {
     display: block;
 }
 
-/* 11. Текст в елементі */
+
 .item-content strong {
     display: block;
     margin-bottom: 5px;
@@ -147,7 +154,7 @@ h2 {
     font-size: 14px;
 }
 
-/* 12. Списки */
+
 ul {
     margin: 5px 0;
     padding-left: 20px;
@@ -157,7 +164,7 @@ li {
     margin-bottom: 5px;
 }
 
-/* 13. Footer */
+
 footer {
     width: 100%;
     text-align: center;
@@ -168,7 +175,35 @@ footer {
     margin-top: 40px;
 }
 
-/* 14. Адаптивність */
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background-color: #e5e7eb;
+    color: #111827;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: filter 0.2s, box-shadow 0.2s;
+}
+
+html.dark .btn {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+.btn:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1100;
+}
+
+
 @media (max-width: 900px) {
     .wrapper {
         flex-direction: column;
