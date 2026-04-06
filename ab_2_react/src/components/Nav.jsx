@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Nav() {
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white dark:bg-gray-300 shadow-md">
       <ul className="flex justify-center gap-6 p-4 flex-wrap">
         <li>
           <a

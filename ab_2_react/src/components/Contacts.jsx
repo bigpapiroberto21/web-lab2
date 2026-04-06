@@ -4,7 +4,7 @@ import contactsImg from '../assets/contacts.jpg';
 
 export default function Contacts() {
   return (
-    <aside id="contacts" className="mb-8 lg:mb-0">
+    <aside id="contacts" className="mb-8 lg:mb-0 text-gray-800 dark:text-gray-300">
       <h2 className="text-xl mb-4 font-semibold">Контакти</h2>
       <Item icon={contactsImg}>
         <p>Email: klagno58@gmail.com</p>

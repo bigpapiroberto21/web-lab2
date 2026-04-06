@@ -4,7 +4,7 @@ import aboutImg from '../assets/about.avif';
 
 export default function About() {
   return (
-    <section id="about" className="mb-8 pb-4 border-b border-gray-300">
+    <section id="about" className="mb-8 pb-4 border-b border-gray-300 dark:border-gray-300 text-gray-800 dark:text-gray-300">
       <h2 className="text-2xl mb-4 font-semibold">Про мене</h2>
       <Item icon={aboutImg}>
         <p>

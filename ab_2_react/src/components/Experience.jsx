@@ -4,7 +4,7 @@ import expImg from '../assets/exp.jpg';
 
 export default function Experience() {
   return (
-    <section id="experience" className="mb-8 pb-4 border-b border-gray-300">
+    <section id="experience" className="mb-8 pb-4 border-b border-gray-300 dark:border-gray-300 text-gray-800 dark:text-gray-300">
       <h2 className="text-2xl mb-4 font-semibold">Досвід роботи</h2>
       <Item icon={expImg}>
         <ul className="list-disc pl-5 space-y-2">
